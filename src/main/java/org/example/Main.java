@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.geom.AffineTransform;
 import java.awt.geom.Point2D;
 import java.util.Arrays;
 
@@ -17,6 +16,7 @@ public class Main extends JComponent {
         figures.add(new Ellipse(new Point(100, 100), 100, 500));
         figures.add(new Rectangle(new Point(100, 100), 100, 500));
         figures.add(new IsoscelesTriangle(new Point(100, 100), 100, 500));
+        figures.add(new Parallelogram(new Point(200, 200), 500, 100, 45));
     }
 
     public void clearFigures() {
@@ -27,29 +27,19 @@ public class Main extends JComponent {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        AffineTransform af = AffineTransform.getTranslateInstance(150, 150);
- //       af.concatenate(new AffineTransform(1,0,0,-1,0,4));
-//       AffineTransform af = new AffineTransform(1,0,0,-1,0,4);
-        af.rotate(Math.toRadians(360), 500, 500);
-        AffineTransform finalAf = af;
         figures.forEach(figure -> {
             for (int xx = 0; xx < 1025; xx++) {
                 g.setColor(Color.BLACK);
                 int[] ys = figure.getY(xx);
                 int finalXx = xx;
-                Point2D.Double dst = new Point2D.Double();
-//                Arrays.stream(ys).forEach(inti -> g.drawLine(finalXx, inti, finalXx, inti));
-                Arrays.stream(ys).forEach(inti -> {
-                    finalAf.transform(new Point2D.Double(finalXx, inti),dst);
-                    g.drawLine((int) dst.getX(), (int) dst.getY(), (int) dst.getX(), (int) dst.getY());
-                });
+                Arrays.stream(ys).forEach(inti -> g.drawLine(finalXx, inti, finalXx, inti));
             }
-//            for (int yy = 0; yy < 721; yy++) {
-//                g.setColor(Color.BLACK);
-//                int[] xs = figure.getX(yy);
-//                int finalYy = yy;
-//                Arrays.stream(xs).forEach(inti -> g.drawLine(inti, finalYy, inti, finalYy));
-//            }
+            for (int yy = 0; yy < 721; yy++) {
+                g.setColor(Color.BLACK);
+                int[] xs = figure.getX(yy);
+                int finalYy = yy;
+                Arrays.stream(xs).forEach(inti -> g.drawLine(inti, finalYy, inti, finalYy));
+            }
         });
     }
 
