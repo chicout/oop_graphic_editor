@@ -1,11 +1,25 @@
-package org.example;
+package by.bsuir.oop.shytsikau.graphic.figures.composite;
 
+import by.bsuir.oop.shytsikau.graphic.figures.RectangleBounds;
+import by.bsuir.oop.shytsikau.graphic.figures.basic.Point;
+import by.bsuir.oop.shytsikau.graphic.figures.collections.PointArray;
+
+/**
+ * A class that represents parallelogram. The calculation of parallelogram coordinates is performed with a polygon logic
+ */
 public class Parallelogram extends Polygon {
 
     private double angle;
 
-    public Parallelogram(Point point, int width, int height, double angle) {
-        super(point, width, height);
+    /**
+     *
+     * @param startPoint anchor of parallelogram
+     * @param width horizontal line length segment of parallelogram
+     * @param height vertical line length segment of parallelogram
+     * @see RectangleBounds
+     */
+    public Parallelogram(Point startPoint, int width, int height, double angle) {
+        super(startPoint, width, height);
         this.angle = angle;
         init();
     }
@@ -17,6 +31,7 @@ public class Parallelogram extends Polygon {
 
     @Override
     protected PointArray makePoints() {
+        // calculation of points of the parallelogram
         PointArray pointArray = new PointArray();
         pointArray.add(this.startPoint);
         Point point2 = new Point(startPoint.getX() + width, startPoint.getY());

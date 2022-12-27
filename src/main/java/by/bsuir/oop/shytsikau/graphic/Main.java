@@ -1,10 +1,17 @@
-package org.example;
+package by.bsuir.oop.shytsikau.graphic;
+
+import by.bsuir.oop.shytsikau.graphic.figures.basic.Ellipse;
+import by.bsuir.oop.shytsikau.graphic.figures.basic.LineSegment;
+import by.bsuir.oop.shytsikau.graphic.figures.basic.Point;
+import by.bsuir.oop.shytsikau.graphic.figures.composite.IsoscelesTriangle;
+import by.bsuir.oop.shytsikau.graphic.figures.composite.Parallelogram;
+import by.bsuir.oop.shytsikau.graphic.figures.composite.Rectangle;
+import by.bsuir.oop.shytsikau.graphic.figures.collections.FigureList;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.geom.Point2D;
 import java.util.Arrays;
 
 public class Main extends JComponent {
@@ -12,7 +19,8 @@ public class Main extends JComponent {
     private final static FigureList figures = new FigureList();
 
     static {
-        figures.add(new LineSegment());
+        figures.add(new LineSegment(new Point(), new Point(100, 400)));
+        figures.get(0).moveRelative(new Point(600, 100));
         figures.add(new Ellipse(new Point(100, 100), 100, 500));
         figures.add(new Rectangle(new Point(100, 100), 100, 500));
         figures.add(new IsoscelesTriangle(new Point(100, 100), 100, 500));

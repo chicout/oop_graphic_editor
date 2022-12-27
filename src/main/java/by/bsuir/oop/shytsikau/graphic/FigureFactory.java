@@ -1,4 +1,7 @@
-package org.example;
+package by.bsuir.oop.shytsikau.graphic;
+
+import by.bsuir.oop.shytsikau.graphic.figures.Figure;
+import by.bsuir.oop.shytsikau.graphic.figures.collections.FigureList;
 
 public class FigureFactory {
 

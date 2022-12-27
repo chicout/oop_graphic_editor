@@ -1,4 +1,7 @@
-package org.example;
+package by.bsuir.oop.shytsikau.graphic.figures.composite;
+
+import by.bsuir.oop.shytsikau.graphic.figures.basic.Point;
+import by.bsuir.oop.shytsikau.graphic.figures.collections.PointArray;
 
 public class IsoscelesTriangle extends Polygon {
 
