@@ -6,7 +6,7 @@ import by.bsuir.oop.shytsikau.graphic.figures.basic.Point;
  * A class that represents rectangle. This is Parallelogram with 90 angle
  * @see Parallelogram
  */
-public class Rectangle extends Parallelogram {
+public class Rectangle extends Parallelogram implements Cloneable {
 
     /**
      *
@@ -22,5 +22,10 @@ public class Rectangle extends Parallelogram {
     @Override
     public String name() {
         return "rectangle";
+    }
+
+    @Override
+    public Rectangle clone() {
+        return (Rectangle) super.clone();
     }
 }

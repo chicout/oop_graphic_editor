@@ -5,7 +5,7 @@ import by.bsuir.oop.shytsikau.graphic.figures.Figure;
 /**
  * A class that represents point.
  */
-public class Point implements Figure {
+public class Point implements Figure, Cloneable {
     private int x, y;
 
     public Point() {
@@ -16,6 +16,11 @@ public class Point implements Figure {
     public Point(int x, int y) {
         this.x = x;
         this.y = y;
+    }
+
+    public Point(Point old) {
+        this.x = old.x;
+        this.y = old.y;
     }
 
     @Override
@@ -61,5 +66,14 @@ public class Point implements Figure {
     @Override
     public void moveRelative(Point relPoint) {
         add(relPoint);
+    }
+
+    @Override
+    public Point clone() {
+        try {
+            return (Point) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
     }
 }

@@ -6,7 +6,7 @@ import by.bsuir.oop.shytsikau.graphic.figures.basic.Point;
  * A class that represents rectangular attributes of a figure - with and height. Can be used for figures that size parameters
  * can be represented as rectangle (ellipse, triangle, rectangle etc.)
  */
-public abstract class RectangleBounds extends AbstractFigure {
+public abstract class RectangleBounds extends AbstractFigure implements Cloneable {
 
     protected int width;
     protected int height;
@@ -31,5 +31,10 @@ public abstract class RectangleBounds extends AbstractFigure {
 
     public void setHeight(int height) {
         this.height = height;
+    }
+
+    @Override
+    public RectangleBounds clone() {
+        return (RectangleBounds) super.clone();
     }
 }

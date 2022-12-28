@@ -13,7 +13,7 @@ import by.bsuir.oop.shytsikau.graphic.figures.collections.PointArray;
  * @see PointArray
  * @see FigureList
  */
-public abstract class Polygon extends Polyline {
+public abstract class Polygon extends Polyline implements Cloneable {
 
     /**
      * Constructor is used when all the points of polygon is known
@@ -63,5 +63,10 @@ public abstract class Polygon extends Polyline {
         // need to add closing line between end and start points
         lines.add(new LineSegment(getPoints().get(getPoints().size() - 1), getPoints().get(0)));
         return lines;
+    }
+
+    @Override
+    public Polygon clone() {
+        return (Polygon) super.clone();
     }
 }

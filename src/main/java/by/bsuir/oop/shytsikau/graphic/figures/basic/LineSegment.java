@@ -5,7 +5,7 @@ import by.bsuir.oop.shytsikau.graphic.figures.AbstractFigure;
 /**
  * A class that represents line segment. The calculation of parallelogram coordinates is performed with canonical line equation <i>(x - x<sup>1</sup>)  / (x<sup>2</sup> - x<sup>1</sup>) = (y - y<sup>1</sup>)  / (y<sup>2</sup> - y<sup>1</sup></i>)
  */
-public class LineSegment extends AbstractFigure {
+public class LineSegment extends AbstractFigure implements Cloneable {
     private Point point2;
 
     public LineSegment(Point startPoint, Point point2) {
@@ -48,5 +48,12 @@ public class LineSegment extends AbstractFigure {
     public void moveRelative(Point relPoint) {
         super.moveRelative(relPoint);
         this.point2.moveRelative(relPoint);
+    }
+
+    @Override
+    public LineSegment clone() {
+        LineSegment clone = (LineSegment) super.clone();
+        clone.point2 = new Point(this.point2);
+        return clone;
     }
 }

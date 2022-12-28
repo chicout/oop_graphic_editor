@@ -31,4 +31,6 @@ public interface Figure {
      */
     void moveRelative(Point relPoint);
 
+    Figure clone();
+
 }

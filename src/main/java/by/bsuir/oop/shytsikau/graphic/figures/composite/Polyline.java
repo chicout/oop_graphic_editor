@@ -15,7 +15,7 @@ import java.util.Arrays;
  * @see PointArray
  * @see FigureList
  */
-public abstract class Polyline extends RectangleBounds implements CompositeFigure {
+public abstract class Polyline extends RectangleBounds implements CompositeFigure, Cloneable {
 
     /**
      * Stores an array of polyline points
@@ -62,5 +62,14 @@ public abstract class Polyline extends RectangleBounds implements CompositeFigur
 
     public PointArray getPoints() {
         return points;
+    }
+
+    @Override
+    public Polyline clone() {
+        Polyline clone = (Polyline) super.clone();
+        PointArray newPoints = new PointArray();
+        newPoints.addAll(this.points.stream().map(Point::new).toList());
+        clone.points = newPoints;
+        return clone;
     }
 }

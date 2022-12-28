@@ -5,7 +5,7 @@ import by.bsuir.oop.shytsikau.graphic.figures.RectangleBounds;
 /**
  * A class that represents ellipse. The calculation of ellipse coordinates is performed with canonical ellipse equation <i>x<sup>2</sup> / a<sup>2</sup> + y<sup>2</sup> / b<sup>2</sup> = 1</i>
  */
-public class Ellipse extends RectangleBounds {
+public class Ellipse extends RectangleBounds implements Cloneable {
 
     /**
      *
@@ -41,5 +41,10 @@ public class Ellipse extends RectangleBounds {
         double b = (double) axis2Diameter / 2;
         int coord2 = (int) (Math.sqrt(Math.pow(b, 2) / Math.pow(a, 2) * (Math.pow(a, 2) - Math.pow(axis1Coord - (a + startPointCoord1), 2))));
         return new int[]{(int) (coord2 + (b + startPointCoord2)), (int) (-coord2 + (b + startPointCoord2))};
+    }
+
+    @Override
+    public Ellipse clone() {
+        return (Ellipse) super.clone();
     }
 }

@@ -4,6 +4,7 @@ import by.bsuir.oop.shytsikau.graphic.figures.Figure;
 import by.bsuir.oop.shytsikau.graphic.figures.basic.Ellipse;
 import by.bsuir.oop.shytsikau.graphic.figures.basic.LineSegment;
 import by.bsuir.oop.shytsikau.graphic.figures.basic.Point;
+import by.bsuir.oop.shytsikau.graphic.figures.composite.FigureSet;
 import by.bsuir.oop.shytsikau.graphic.figures.composite.IsoscelesTriangle;
 import by.bsuir.oop.shytsikau.graphic.figures.composite.Parallelogram;
 import by.bsuir.oop.shytsikau.graphic.figures.composite.Rectangle;
@@ -36,12 +37,34 @@ public class Main {
         figures.add(isoscelesTriangle);
         figures.add(parallelogram);
 
+
         // move to appropriate place relatively to (0,0)
         line.moveRelative(new Point(100, 30));
         ellipse.moveRelative(new Point(100, 100));
         rectangle.moveRelative(new Point(100, 225));
         isoscelesTriangle.moveRelative(new Point(100, 350));
         parallelogram.moveRelative(new Point(100, 600));
+
+        line = (Figure) line.clone();
+        ellipse = (Figure) ellipse.clone();
+        rectangle = (Figure) rectangle.clone();
+        isoscelesTriangle = (Figure) isoscelesTriangle.clone();
+
+        // move to appropriate place relatively to (0,0)
+        line.moveRelative(new Point(300, 0));
+        ellipse.moveRelative(new Point(300, 0));
+        rectangle.moveRelative(new Point(300, 0));
+        isoscelesTriangle.moveRelative(new Point(300, 0));
+
+        FigureSet figureSet = new FigureSet(line, ellipse, rectangle, isoscelesTriangle);
+        figures.add(figureSet);
+        figureSet.moveRelative(new Point(100, 20));
+
+        figureSet = figureSet.clone();
+
+        figures.add(figureSet);
+        figureSet.moveRelative(new Point(100, 20));
+
     }
 
     public static void main(String[] args) {
