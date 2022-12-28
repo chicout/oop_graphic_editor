@@ -5,7 +5,7 @@ import by.bsuir.oop.shytsikau.graphic.figures.basic.Point;
 import by.bsuir.oop.shytsikau.graphic.figures.collections.PointArray;
 
 /**
- * A class that represents parallelogram. The calculation of parallelogram coordinates is performed with a polygon logic
+ * A class that represents parallelogram. The calculation of parallelogram coordinates is performed with a polygon logic, the class providing required points
  */
 public class Parallelogram extends Polygon {
 
@@ -21,7 +21,7 @@ public class Parallelogram extends Polygon {
     public Parallelogram(Point startPoint, int width, int height, double angle) {
         super(startPoint, width, height);
         this.angle = angle;
-        init();
+        recalculatePoints();
     }
 
     @Override

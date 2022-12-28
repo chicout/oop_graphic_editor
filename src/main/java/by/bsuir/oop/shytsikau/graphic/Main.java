@@ -1,5 +1,6 @@
 package by.bsuir.oop.shytsikau.graphic;
 
+import by.bsuir.oop.shytsikau.graphic.figures.Figure;
 import by.bsuir.oop.shytsikau.graphic.figures.basic.Ellipse;
 import by.bsuir.oop.shytsikau.graphic.figures.basic.LineSegment;
 import by.bsuir.oop.shytsikau.graphic.figures.basic.Point;
@@ -7,82 +8,52 @@ import by.bsuir.oop.shytsikau.graphic.figures.composite.IsoscelesTriangle;
 import by.bsuir.oop.shytsikau.graphic.figures.composite.Parallelogram;
 import by.bsuir.oop.shytsikau.graphic.figures.composite.Rectangle;
 import by.bsuir.oop.shytsikau.graphic.figures.collections.FigureList;
+import by.bsuir.oop.shytsikau.graphic.ui.GraphicEditorComponent;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.Arrays;
 
-public class Main extends JComponent {
+public class Main {
+
+    private final static int PAINT_WIDTH = 1024;
+    private final static int PAINT_HEIGHT = 720;
 
     private final static FigureList figures = new FigureList();
 
+    // static initialization
     static {
-        figures.add(new LineSegment(new Point(), new Point(100, 400)));
-        figures.get(0).moveRelative(new Point(600, 100));
-        figures.add(new Ellipse(new Point(100, 100), 100, 500));
-        figures.add(new Rectangle(new Point(100, 100), 100, 500));
-        figures.add(new IsoscelesTriangle(new Point(100, 100), 100, 500));
-        figures.add(new Parallelogram(new Point(200, 200), 500, 100, 45));
-    }
+        // create figures objects for the current task
+        Figure line = new LineSegment(new Point(), new Point(300, 50));
+        Figure ellipse = new Ellipse(new Point(), 300, 100);
+        Figure rectangle = new Rectangle(new Point(), 300, 100);
+        Figure isoscelesTriangle = new IsoscelesTriangle(new Point(), 100, 200);
+        Figure parallelogram = new Parallelogram(new Point(), 300, 100, 45);
 
-    public void clearFigures() {
-        figures.clear();
-        repaint();
-    }
+        // add the objects to static figure list
+        figures.add(line);
+        figures.add(ellipse);
+        figures.add(rectangle);
+        figures.add(isoscelesTriangle);
+        figures.add(parallelogram);
 
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        figures.forEach(figure -> {
-            for (int xx = 0; xx < 1025; xx++) {
-                g.setColor(Color.BLACK);
-                int[] ys = figure.getY(xx);
-                int finalXx = xx;
-                Arrays.stream(ys).forEach(inti -> g.drawLine(finalXx, inti, finalXx, inti));
-            }
-            for (int yy = 0; yy < 721; yy++) {
-                g.setColor(Color.BLACK);
-                int[] xs = figure.getX(yy);
-                int finalYy = yy;
-                Arrays.stream(xs).forEach(inti -> g.drawLine(inti, finalYy, inti, finalYy));
-            }
-        });
+        // move to appropriate place relatively to (0,0)
+        line.moveRelative(new Point(100, 30));
+        ellipse.moveRelative(new Point(100, 100));
+        rectangle.moveRelative(new Point(100, 225));
+        isoscelesTriangle.moveRelative(new Point(100, 350));
+        parallelogram.moveRelative(new Point(100, 600));
     }
 
     public static void main(String[] args) {
-
+        // create UI
         JFrame testFrame = new JFrame();
         testFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        final Main comp = new Main();
-        comp.setPreferredSize(new Dimension(1024, 720));
+
+        // create painting canvas
+        final GraphicEditorComponent comp = new GraphicEditorComponent(figures);
+        comp.setPreferredSize(new Dimension(PAINT_WIDTH, PAINT_HEIGHT));
+
         testFrame.getContentPane().add(comp, BorderLayout.CENTER);
-        JPanel buttonsPanel = new JPanel();
-        JButton newLineButton = new JButton("New Line");
-        JButton clearButton = new JButton("Clear");
-        buttonsPanel.add(newLineButton);
-        buttonsPanel.add(clearButton);
-        testFrame.getContentPane().add(buttonsPanel, BorderLayout.SOUTH);
-        newLineButton.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int x1 = 100;
-                int x2 = 100;
-                int y1 = 100;
-                int y2 = 100;
-                Color randomColor = new Color((float)Math.random(), (float)Math.random(), (float)Math.random());
-//                comp.addLine(x1, y1, x2, y2, randomColor);
-            }
-        });
-        clearButton.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                comp.clearFigures();
-            }
-        });
         testFrame.pack();
         testFrame.setVisible(true);
     }

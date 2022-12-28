@@ -3,7 +3,8 @@ package by.bsuir.oop.shytsikau.graphic.figures.composite;
 import by.bsuir.oop.shytsikau.graphic.figures.basic.Point;
 
 /**
- * A class that represents rectangle.
+ * A class that represents rectangle. This is Parallelogram with 90 angle
+ * @see Parallelogram
  */
 public class Rectangle extends Parallelogram {
 
@@ -22,5 +23,4 @@ public class Rectangle extends Parallelogram {
     public String name() {
         return "rectangle";
     }
-
 }

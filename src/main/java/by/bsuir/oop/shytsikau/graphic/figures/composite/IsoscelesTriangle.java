@@ -3,6 +3,9 @@ package by.bsuir.oop.shytsikau.graphic.figures.composite;
 import by.bsuir.oop.shytsikau.graphic.figures.basic.Point;
 import by.bsuir.oop.shytsikau.graphic.figures.collections.PointArray;
 
+/**
+ * A class that represents isosceles triangle. The calculation of isosceles triangle coordinates is performed with a polygon logic, the class providing required points
+ */
 public class IsoscelesTriangle extends Polygon {
 
     public IsoscelesTriangle(Point point1, int width, int height) {

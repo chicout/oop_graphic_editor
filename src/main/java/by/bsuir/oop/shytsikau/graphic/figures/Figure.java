@@ -25,6 +25,10 @@ public interface Figure {
      */
     int[] getX(int y);
 
-    void moveRelative(Point newLocation);
+    /**
+     * Move the figure adding coordinates to current location
+     * @param relPoint relative point to add to current location
+     */
+    void moveRelative(Point relPoint);
 
 }

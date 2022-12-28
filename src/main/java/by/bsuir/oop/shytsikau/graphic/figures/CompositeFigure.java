@@ -22,8 +22,8 @@ public interface CompositeFigure extends Figure {
     }
 
     @Override
-    default void moveRelative(Point newLocation){
-        getFigures().forEach(figure -> figure.moveRelative(newLocation));
+    default void moveRelative(Point relPoint){
+        getFigures().forEach(figure -> figure.moveRelative(relPoint));
     }
 
     FigureList getFigures();

@@ -33,13 +33,19 @@ public abstract class Polygon extends Polyline {
      */
     public Polygon(Point startPoint, int width, int height) {
         super(startPoint, width, height);
-        init();
+        recalculatePoints();
+    }
+
+    @Override
+    public void moveRelative(Point relPoint) {
+        super.moveRelative(relPoint);
+        recalculatePoints();
     }
 
     /**
-     * Initialization of polygon points, can be invoked if points are changed after constructor invocation
+     * Recalculation of polygon points, can be invoked if points are changed after constructor invocation
      */
-    protected void init() {
+    protected void recalculatePoints() {
         setPoints(makePoints());
     }
 
