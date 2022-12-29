@@ -26,5 +26,23 @@ public interface CompositeFigure extends Figure {
         getFigures().forEach(figure -> figure.moveRelative(relPoint));
     }
 
+    @Override
+    default void setStartPoint(Point startPoint) {
+        Point minusStart = new Point(-1 * getStartPoint().getX(), -1 * getStartPoint().getY());
+        getFigures().stream().forEach(figure -> {
+            figure.moveRelative(minusStart);
+            figure.moveRelative(startPoint);
+        });
+    }
+
+    /**
+     * Set anchor point of figure - for composite the anchor point is first added figure anchor point
+     * @return anchor point for the figure
+     */
+    @Override
+    default Point getStartPoint() {
+        return getFigures().get(0).getStartPoint();
+    }
+
     FigureList getFigures();
 }

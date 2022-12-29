@@ -7,7 +7,9 @@ import by.bsuir.oop.shytsikau.graphic.figures.collections.PointArray;
 /**
  * A class that represents parallelogram. The calculation of parallelogram coordinates is performed with a polygon logic, the class providing required points
  */
-public class Parallelogram extends Polygon {
+public class Parallelogram extends Polygon implements Cloneable {
+
+    protected final static double DEFAULT_ANGLE = 70;
 
     private double angle;
 
@@ -21,6 +23,25 @@ public class Parallelogram extends Polygon {
     public Parallelogram(Point startPoint, int width, int height, double angle) {
         super(startPoint, width, height);
         this.angle = angle;
+        recalculatePoints();
+    }
+
+    /**
+     * Default rectangle with specified angle
+     * @param angle angle to set
+     */
+    public Parallelogram(double angle) {
+        super();
+        this.angle = angle;
+        recalculatePoints();
+    }
+
+    /**
+     * Default rectangle
+     */
+    public Parallelogram() {
+        super();
+        this.angle = DEFAULT_ANGLE;
         recalculatePoints();
     }
 
@@ -48,5 +69,10 @@ public class Parallelogram extends Polygon {
 
     public void setAngle(double angle) {
         this.angle = angle;
+    }
+
+    @Override
+    public Parallelogram clone() {
+        return (Parallelogram) super.clone();
     }
 }
