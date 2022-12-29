@@ -43,6 +43,10 @@ public abstract class Polyline extends RectangleBounds implements CompositeFigur
         super(startPoint, width, height);
     }
 
+    public Polyline() {
+        super();
+    }
+
     @Override
     public FigureList getFigures() {
         if (points.size() < 2) {

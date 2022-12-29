@@ -16,12 +16,15 @@ public abstract class AbstractFigure implements Figure, Cloneable {
         this.startPoint = startPoint;
     }
 
+    @Override
     public Point getStartPoint() {
         return startPoint;
     }
 
+    @Override
     public void setStartPoint(Point startPoint) {
         this.startPoint = startPoint;
+        recalculatePoints();
     }
 
     public void moveRelative(Point newLocation) {

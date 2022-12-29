@@ -12,6 +12,10 @@ public class IsoscelesTriangle extends Polygon implements Cloneable {
         super(point1, width, height);
     }
 
+    public IsoscelesTriangle() {
+        super();
+    }
+
     @Override
     public String name() {
         return "isosceles";

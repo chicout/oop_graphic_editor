@@ -1,6 +1,7 @@
 package by.bsuir.oop.shytsikau.graphic.figures.basic;
 
 import by.bsuir.oop.shytsikau.graphic.figures.Figure;
+import by.bsuir.oop.shytsikau.graphic.figures.collections.PointArray;
 
 /**
  * A class that represents point.
@@ -66,6 +67,19 @@ public class Point implements Figure, Cloneable {
     @Override
     public void moveRelative(Point relPoint) {
         add(relPoint);
+    }
+
+    public void setPoints(PointArray points) {
+        if (points.size() != 1) {
+            throw new IllegalArgumentException("Point must have 1 point");
+        }
+        this.x = points.get(0).getX();
+        this.y = points.get(0).getY();
+    }
+
+    @Override
+    public Point getStartPoint() {
+        return this;
     }
 
     @Override

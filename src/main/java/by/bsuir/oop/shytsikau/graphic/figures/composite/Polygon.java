@@ -36,6 +36,11 @@ public abstract class Polygon extends Polyline implements Cloneable {
         recalculatePoints();
     }
 
+    public Polygon() {
+        super();
+        recalculatePoints();
+    }
+
     @Override
     public void moveRelative(Point relPoint) {
         super.moveRelative(relPoint);
@@ -45,7 +50,7 @@ public abstract class Polygon extends Polyline implements Cloneable {
     /**
      * Recalculation of polygon points, can be invoked if points are changed after constructor invocation
      */
-    protected void recalculatePoints() {
+    public void recalculatePoints() {
         setPoints(makePoints());
     }
 

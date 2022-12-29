@@ -9,6 +9,8 @@ import by.bsuir.oop.shytsikau.graphic.figures.collections.PointArray;
  */
 public class Parallelogram extends Polygon implements Cloneable {
 
+    protected final static double DEFAULT_ANGLE = 70;
+
     private double angle;
 
     /**
@@ -21,6 +23,25 @@ public class Parallelogram extends Polygon implements Cloneable {
     public Parallelogram(Point startPoint, int width, int height, double angle) {
         super(startPoint, width, height);
         this.angle = angle;
+        recalculatePoints();
+    }
+
+    /**
+     * Default rectangle with specified angle
+     * @param angle angle to set
+     */
+    public Parallelogram(double angle) {
+        super();
+        this.angle = angle;
+        recalculatePoints();
+    }
+
+    /**
+     * Default rectangle
+     */
+    public Parallelogram() {
+        super();
+        this.angle = DEFAULT_ANGLE;
         recalculatePoints();
     }
 

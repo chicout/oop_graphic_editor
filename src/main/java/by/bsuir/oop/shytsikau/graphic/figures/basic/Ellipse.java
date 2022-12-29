@@ -7,6 +7,10 @@ import by.bsuir.oop.shytsikau.graphic.figures.RectangleBounds;
  */
 public class Ellipse extends RectangleBounds implements Cloneable {
 
+    public Ellipse() {
+        super();
+    }
+
     /**
      *
      * @param startPoint anchor point of an ellipse

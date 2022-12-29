@@ -9,6 +9,13 @@ import by.bsuir.oop.shytsikau.graphic.figures.basic.Point;
 public class Rectangle extends Parallelogram implements Cloneable {
 
     /**
+     * Default rectangle
+     */
+    public Rectangle() {
+        super(90);
+    }
+
+    /**
      *
      * @param point anchor point of a rectangle
      * @param width width of a rectangle

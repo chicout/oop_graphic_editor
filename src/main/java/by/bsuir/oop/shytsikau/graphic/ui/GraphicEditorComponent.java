@@ -44,4 +44,8 @@ public class GraphicEditorComponent extends JComponent {
     public void drawDot(Graphics g, int x, int y) {
         g.drawLine(x, y, x, y);
     }
+
+    public FigureList getFigures() {
+        return figures;
+    }
 }

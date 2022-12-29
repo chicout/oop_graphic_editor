@@ -1,6 +1,7 @@
 package by.bsuir.oop.shytsikau.graphic.figures;
 
 import by.bsuir.oop.shytsikau.graphic.figures.basic.Point;
+import by.bsuir.oop.shytsikau.graphic.figures.collections.PointArray;
 
 /**
  * An interface that describes a figure behavior
@@ -31,6 +32,21 @@ public interface Figure {
      */
     void moveRelative(Point relPoint);
 
+    /**
+     * Cloning the figure
+     * @return deep copy of the figure
+     */
     Figure clone();
 
+    // default methods for figure builder - figure implementation is allowed not to implement them
+    default void setPoints(PointArray points){}
+    default void setAngle(double angle) {}
+    default void setWidth(int width) {}
+    default void setHeight(int height) {}
+
+    Point getStartPoint();
+
+    default void setStartPoint(Point startPoint) {}
+
+    default void recalculatePoints() {}
 }

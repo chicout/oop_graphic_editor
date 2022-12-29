@@ -16,6 +16,14 @@ public class FigureList extends ArrayList<Figure> {
     }
 
     public FigureList() {
+    }
 
+    /**
+     * Get figure by its name
+     * @param name name of a figure
+     * @return figure that has the name
+     */
+    public Figure getFigure(String name) {
+        return this.stream().filter(figure -> figure.name().equals(name)).findFirst().get();
     }
 }
