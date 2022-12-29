@@ -5,6 +5,7 @@ import by.bsuir.oop.shytsikau.graphic.figures.Figure;
 import by.bsuir.oop.shytsikau.graphic.figures.collections.FigureList;
 
 import java.util.Arrays;
+import java.util.stream.Collectors;
 
 /**
  * Default implementation of CompositeFigure. User for creating user custom figures
@@ -56,7 +57,7 @@ public class FigureSet implements CompositeFigure, Cloneable {
         try {
             FigureSet clone = (FigureSet) super.clone();
             FigureList newFigures = new FigureList();
-            newFigures.addAll(this.figures.stream().map(figure -> (Figure) figure.clone()).toList());
+            newFigures.addAll(this.figures.stream().map(figure -> (Figure) figure.clone()).collect(Collectors.toList()));
             clone.figures = newFigures;
             return clone;
         } catch (CloneNotSupportedException e) {

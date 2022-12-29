@@ -8,6 +8,7 @@ import by.bsuir.oop.shytsikau.graphic.figures.collections.FigureList;
 import by.bsuir.oop.shytsikau.graphic.figures.collections.PointArray;
 
 import java.util.Arrays;
+import java.util.stream.Collectors;
 
 /**
  * A class that represents polyline. The calculation of polyline coordinates is performed with a composite figure consisting of several lines
@@ -72,7 +73,7 @@ public abstract class Polyline extends RectangleBounds implements CompositeFigur
     public Polyline clone() {
         Polyline clone = (Polyline) super.clone();
         PointArray newPoints = new PointArray();
-        newPoints.addAll(this.points.stream().map(Point::new).toList());
+        newPoints.addAll(this.points.stream().map(Point::new).collect(Collectors.toList()));
         clone.points = newPoints;
         return clone;
     }
