@@ -4,10 +4,15 @@ import by.bsuir.oop.shytsikau.graphic.figures.RectangleBounds;
 import by.bsuir.oop.shytsikau.graphic.figures.basic.Point;
 import by.bsuir.oop.shytsikau.graphic.figures.collections.PointArray;
 
+import java.io.Externalizable;
+import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
+
 /**
  * A class that represents parallelogram. The calculation of parallelogram coordinates is performed with a polygon logic, the class providing required points
  */
-public class Parallelogram extends Polygon implements Cloneable {
+public class Parallelogram extends Polygon implements Cloneable, Externalizable {
 
     protected final static double DEFAULT_ANGLE = 70;
 
@@ -74,5 +79,17 @@ public class Parallelogram extends Polygon implements Cloneable {
     @Override
     public Parallelogram clone() {
         return (Parallelogram) super.clone();
+    }
+
+    @Override
+    public void writeExternal(ObjectOutput out) throws IOException {
+        super.writeExternal(out);
+        out.writeDouble(angle);
+    }
+
+    @Override
+    public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+        super.readExternal(in);
+        this.angle = in.readDouble();
     }
 }

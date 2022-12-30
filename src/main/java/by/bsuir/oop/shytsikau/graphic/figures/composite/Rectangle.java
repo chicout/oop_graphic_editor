@@ -2,11 +2,13 @@ package by.bsuir.oop.shytsikau.graphic.figures.composite;
 
 import by.bsuir.oop.shytsikau.graphic.figures.basic.Point;
 
+import java.io.Externalizable;
+
 /**
  * A class that represents rectangle. This is Parallelogram with 90 angle
  * @see Parallelogram
  */
-public class Rectangle extends Parallelogram implements Cloneable {
+public class Rectangle extends Parallelogram implements Cloneable, Externalizable {
 
     /**
      * Default rectangle

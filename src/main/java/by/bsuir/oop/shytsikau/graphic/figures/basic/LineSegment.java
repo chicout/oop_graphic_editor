@@ -3,6 +3,10 @@ package by.bsuir.oop.shytsikau.graphic.figures.basic;
 import by.bsuir.oop.shytsikau.graphic.figures.AbstractFigure;
 import by.bsuir.oop.shytsikau.graphic.figures.collections.PointArray;
 
+import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
+
 /**
  * A class that represents line segment. The calculation of parallelogram coordinates is performed with canonical line equation <i>(x - x<sup>1</sup>)  / (x<sup>2</sup> - x<sup>1</sup>) = (y - y<sup>1</sup>)  / (y<sup>2</sup> - y<sup>1</sup></i>)
  */
@@ -56,6 +60,15 @@ public class LineSegment extends AbstractFigure implements Cloneable {
     }
 
     @Override
+    public void resize(double factor) {
+        Point minusStart = new Point(-1 * getStartPoint().getX(), -1 * getStartPoint().getY());
+        point2.add(minusStart);
+        point2.setX((int) (point2.getX() * factor));
+        point2.setY((int) (point2.getY() * factor));
+        point2.add(startPoint);
+    }
+
+    @Override
     public void setStartPoint(Point startPoint) {
         Point minusStart = new Point(-1 * getStartPoint().getX(), -1 * getStartPoint().getY());
         super.setStartPoint(startPoint);
@@ -76,5 +89,17 @@ public class LineSegment extends AbstractFigure implements Cloneable {
         LineSegment clone = (LineSegment) super.clone();
         clone.point2 = new Point(this.point2);
         return clone;
+    }
+
+    @Override
+    public void writeExternal(ObjectOutput out) throws IOException {
+        super.writeExternal(out);
+        out.writeObject(point2);
+    }
+
+    @Override
+    public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+        super.readExternal(in);
+        this.point2 = (Point) in.readObject();
     }
 }

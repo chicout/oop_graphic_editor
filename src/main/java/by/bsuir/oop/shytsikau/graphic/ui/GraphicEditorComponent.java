@@ -48,4 +48,6 @@ public class GraphicEditorComponent extends JComponent {
     public FigureList getFigures() {
         return figures;
     }
+
+
 }

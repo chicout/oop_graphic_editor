@@ -32,6 +32,8 @@ public interface Figure {
      */
     void moveRelative(Point relPoint);
 
+    void resize(double factor);
+
     /**
      * Cloning the figure
      * @return deep copy of the figure
