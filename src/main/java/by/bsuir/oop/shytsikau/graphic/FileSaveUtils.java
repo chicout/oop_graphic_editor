@@ -10,7 +10,7 @@ public class FileSaveUtils {
 
     public static void save(FigureList figureList) {
         try {
-            FileOutputStream fileOutputStream = new FileOutputStream("saved");
+            FileOutputStream fileOutputStream = new FileOutputStream(FILENAME);
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
             figureList.writeExternal(objectOutputStream);
 
