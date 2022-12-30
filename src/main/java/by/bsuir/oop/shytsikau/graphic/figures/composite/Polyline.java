@@ -7,6 +7,10 @@ import by.bsuir.oop.shytsikau.graphic.figures.basic.Point;
 import by.bsuir.oop.shytsikau.graphic.figures.collections.FigureList;
 import by.bsuir.oop.shytsikau.graphic.figures.collections.PointArray;
 
+import java.io.Externalizable;
+import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
@@ -16,7 +20,7 @@ import java.util.stream.Collectors;
  * @see PointArray
  * @see FigureList
  */
-public abstract class Polyline extends RectangleBounds implements CompositeFigure, Cloneable {
+public abstract class Polyline extends RectangleBounds implements CompositeFigure, Cloneable, Externalizable {
 
     /**
      * Stores an array of polyline points
@@ -76,5 +80,17 @@ public abstract class Polyline extends RectangleBounds implements CompositeFigur
         newPoints.addAll(this.points.stream().map(Point::new).collect(Collectors.toList()));
         clone.points = newPoints;
         return clone;
+    }
+
+    @Override
+    public void writeExternal(ObjectOutput out) throws IOException {
+        super.writeExternal(out);
+        out.writeObject(points);
+    }
+
+    @Override
+    public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+        super.readExternal(in);
+        this.points = (PointArray) in.readObject();
     }
 }

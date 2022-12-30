@@ -7,13 +7,15 @@ import by.bsuir.oop.shytsikau.graphic.figures.basic.Point;
 import by.bsuir.oop.shytsikau.graphic.figures.collections.FigureList;
 import by.bsuir.oop.shytsikau.graphic.figures.collections.PointArray;
 
+import java.io.Externalizable;
+
 /**
  * A class that represents polygon. The calculation of polyline coordinates is performed with polyline logic (with added closing line)
  * @see CompositeFigure
  * @see PointArray
  * @see FigureList
  */
-public abstract class Polygon extends Polyline implements Cloneable {
+public abstract class Polygon extends Polyline implements Cloneable, Externalizable {
 
     /**
      * Constructor is used when all the points of polygon is known

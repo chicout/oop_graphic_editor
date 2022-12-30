@@ -27,6 +27,11 @@ public interface CompositeFigure extends Figure {
     }
 
     @Override
+    default void resize(double factor) {
+        getFigures().forEach(figure -> figure.resize(factor));
+    }
+
+    @Override
     default void setStartPoint(Point startPoint) {
         Point minusStart = new Point(-1 * getStartPoint().getX(), -1 * getStartPoint().getY());
         getFigures().stream().forEach(figure -> {

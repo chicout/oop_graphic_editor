@@ -3,10 +3,12 @@ package by.bsuir.oop.shytsikau.graphic.figures.basic;
 import by.bsuir.oop.shytsikau.graphic.figures.Figure;
 import by.bsuir.oop.shytsikau.graphic.figures.collections.PointArray;
 
+import java.io.*;
+
 /**
  * A class that represents point.
  */
-public class Point implements Figure, Cloneable {
+public class Point implements Figure, Cloneable, Externalizable {
     private int x, y;
 
     public Point() {
@@ -69,6 +71,10 @@ public class Point implements Figure, Cloneable {
         add(relPoint);
     }
 
+    public void resize(double factor) {
+        // do nothing
+    }
+
     public void setPoints(PointArray points) {
         if (points.size() != 1) {
             throw new IllegalArgumentException("Point must have 1 point");
@@ -89,5 +95,17 @@ public class Point implements Figure, Cloneable {
         } catch (CloneNotSupportedException e) {
             throw new AssertionError();
         }
+    }
+
+    @Override
+    public void writeExternal(ObjectOutput out) throws IOException {
+        out.writeInt(this.x);
+        out.writeInt(this.y);
+    }
+
+    @Override
+    public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+        this.x = in.readInt();
+        this.y = in.readInt();
     }
 }

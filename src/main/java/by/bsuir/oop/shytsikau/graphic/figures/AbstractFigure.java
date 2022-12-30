@@ -2,10 +2,15 @@ package by.bsuir.oop.shytsikau.graphic.figures;
 
 import by.bsuir.oop.shytsikau.graphic.figures.basic.Point;
 
+import java.io.Externalizable;
+import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
+
 /**
  * A class that represents starting point of a figure (aka anchor).
  */
-public abstract class AbstractFigure implements Figure, Cloneable {
+public abstract class AbstractFigure implements Figure, Cloneable, Externalizable {
 
     /**
      * An anchor point of a figure
@@ -27,6 +32,7 @@ public abstract class AbstractFigure implements Figure, Cloneable {
         recalculatePoints();
     }
 
+    @Override
     public void moveRelative(Point newLocation) {
         startPoint.add(newLocation);
     }
@@ -40,5 +46,15 @@ public abstract class AbstractFigure implements Figure, Cloneable {
         } catch (CloneNotSupportedException e) {
             throw new AssertionError();
         }
+    }
+
+    @Override
+    public void writeExternal(ObjectOutput out) throws IOException {
+        out.writeObject(startPoint);
+    }
+
+    @Override
+    public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+        this.startPoint = (Point) in.readObject();
     }
 }

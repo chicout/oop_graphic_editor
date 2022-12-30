@@ -4,6 +4,10 @@ import by.bsuir.oop.shytsikau.graphic.figures.CompositeFigure;
 import by.bsuir.oop.shytsikau.graphic.figures.Figure;
 import by.bsuir.oop.shytsikau.graphic.figures.collections.FigureList;
 
+import java.io.Externalizable;
+import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
@@ -11,7 +15,7 @@ import java.util.stream.Collectors;
  * Default implementation of CompositeFigure. User for creating user custom figures
  * @see CompositeFigure
  */
-public class FigureSet implements CompositeFigure, Cloneable {
+public class FigureSet implements CompositeFigure, Cloneable, Externalizable {
 
     private String name;
 
@@ -63,5 +67,17 @@ public class FigureSet implements CompositeFigure, Cloneable {
         } catch (CloneNotSupportedException e) {
             throw new AssertionError();
         }
+    }
+
+    @Override
+    public void writeExternal(ObjectOutput out) throws IOException {
+        out.writeUTF(name);
+        out.writeObject(figures);
+    }
+
+    @Override
+    public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+        this.name = in.readUTF();
+        this.figures = (FigureList) in.readObject();
     }
 }
