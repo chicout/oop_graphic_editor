@@ -1,9 +1,11 @@
 package by.bsuir.oop.shytsikau.graphic.figures.collections;
 
-import by.bsuir.oop.shytsikau.graphic.figures.Figure;
 import by.bsuir.oop.shytsikau.graphic.figures.basic.Point;
 
-import java.io.*;
+import java.io.Externalizable;
+import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
 import java.util.ArrayList;
 import java.util.Collection;
 

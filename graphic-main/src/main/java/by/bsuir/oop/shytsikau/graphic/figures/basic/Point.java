@@ -3,7 +3,10 @@ package by.bsuir.oop.shytsikau.graphic.figures.basic;
 import by.bsuir.oop.shytsikau.graphic.figures.Figure;
 import by.bsuir.oop.shytsikau.graphic.figures.collections.PointArray;
 
-import java.io.*;
+import java.io.Externalizable;
+import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
 
 /**
  * A class that represents point.

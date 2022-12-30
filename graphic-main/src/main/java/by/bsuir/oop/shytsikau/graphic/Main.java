@@ -37,7 +37,7 @@ public class Main {
 
         JFrame testFrame = new EditorFrame(comp);
         testFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        testFrame.getContentPane().setBackground(new java.awt.Color(255, 255, 255));
+        testFrame.getContentPane().setBackground(new Color(255, 255, 255));
 
         testFrame.pack();
         testFrame.setVisible(true);

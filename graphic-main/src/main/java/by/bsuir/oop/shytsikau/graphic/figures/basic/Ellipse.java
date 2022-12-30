@@ -3,9 +3,6 @@ package by.bsuir.oop.shytsikau.graphic.figures.basic;
 import by.bsuir.oop.shytsikau.graphic.figures.RectangleBounds;
 
 import java.io.Externalizable;
-import java.io.IOException;
-import java.io.ObjectInput;
-import java.io.ObjectOutput;
 
 /**
  * A class that represents ellipse. The calculation of ellipse coordinates is performed with canonical ellipse equation <i>x<sup>2</sup> / a<sup>2</sup> + y<sup>2</sup> / b<sup>2</sup> = 1</i>

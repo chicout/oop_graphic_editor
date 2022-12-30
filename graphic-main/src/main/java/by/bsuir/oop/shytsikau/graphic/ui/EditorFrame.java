@@ -6,7 +6,6 @@ import by.bsuir.oop.shytsikau.graphic.figures.Figure;
 import by.bsuir.oop.shytsikau.graphic.figures.RectangleBounds;
 import by.bsuir.oop.shytsikau.graphic.figures.basic.LineSegment;
 import by.bsuir.oop.shytsikau.graphic.figures.basic.Point;
-import by.bsuir.oop.shytsikau.graphic.figures.collections.FigureList;
 import by.bsuir.oop.shytsikau.graphic.figures.collections.PointArray;
 import by.bsuir.oop.shytsikau.graphic.figures.composite.FigureSet;
 import by.bsuir.oop.shytsikau.graphic.figures.composite.Parallelogram;
@@ -15,7 +14,6 @@ import by.bsuir.oop.shytsikau.graphic.figures.composite.Rectangle;
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.*;
 import java.util.Arrays;
 
 public class EditorFrame extends JFrame {
@@ -41,50 +39,50 @@ public class EditorFrame extends JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
-        scriptDialog = new javax.swing.JDialog();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        scriptTextPane = new javax.swing.JTextPane();
-        createScriptFigureButton = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
-        nameCustomScriptTextField = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        createDialog = new javax.swing.JDialog();
-        createFigureButton = new javax.swing.JButton();
-        nameCustomDialogTextField = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        figuresDialogList = new javax.swing.JList<>();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        point1Edit = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        point2Edit = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        angleEdit = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        widthEdit = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        heightEdit = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        startPointEdit = new javax.swing.JTextField();
-        addFigureButton = new javax.swing.JButton();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        addedFiguresList = new javax.swing.JList<>();
-        jLabel11 = new javax.swing.JLabel();
-        editorPanel = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        figureList = new javax.swing.JList<>();
-        addByScriptButton = new javax.swing.JButton();
-        addByDialogButton = new javax.swing.JButton();
-        jLabel13 = new javax.swing.JLabel();
-        moveButton = new javax.swing.JButton();
-        resizeEdit = new javax.swing.JTextField();
-        resizeButton = new javax.swing.JButton();
-        deleteButton = new javax.swing.JButton();
-        loadButton = new javax.swing.JButton();
-        saveButton = new javax.swing.JButton();
+        scriptDialog = new JDialog();
+        jScrollPane2 = new JScrollPane();
+        scriptTextPane = new JTextPane();
+        createScriptFigureButton = new JButton();
+        jScrollPane3 = new JScrollPane();
+        jTextArea1 = new JTextArea();
+        jLabel1 = new JLabel();
+        nameCustomScriptTextField = new JTextField();
+        jLabel2 = new JLabel();
+        createDialog = new JDialog();
+        createFigureButton = new JButton();
+        nameCustomDialogTextField = new JTextField();
+        jLabel4 = new JLabel();
+        jScrollPane6 = new JScrollPane();
+        figuresDialogList = new JList<>();
+        jLabel5 = new JLabel();
+        jLabel6 = new JLabel();
+        point1Edit = new JTextField();
+        jLabel3 = new JLabel();
+        point2Edit = new JTextField();
+        jLabel7 = new JLabel();
+        angleEdit = new JTextField();
+        jLabel8 = new JLabel();
+        widthEdit = new JTextField();
+        jLabel9 = new JLabel();
+        heightEdit = new JTextField();
+        jLabel10 = new JLabel();
+        startPointEdit = new JTextField();
+        addFigureButton = new JButton();
+        jScrollPane4 = new JScrollPane();
+        addedFiguresList = new JList<>();
+        jLabel11 = new JLabel();
+        editorPanel = new JPanel();
+        jScrollPane1 = new JScrollPane();
+        figureList = new JList<>();
+        addByScriptButton = new JButton();
+        addByDialogButton = new JButton();
+        jLabel13 = new JLabel();
+        moveButton = new JButton();
+        resizeEdit = new JTextField();
+        resizeButton = new JButton();
+        deleteButton = new JButton();
+        loadButton = new JButton();
+        saveButton = new JButton();
 
         scriptDialog.setSize(new java.awt.Dimension(500, 450));
 
@@ -107,40 +105,40 @@ public class EditorFrame extends JFrame {
 
         jLabel2.setText("Name of custom figure:");
 
-        javax.swing.GroupLayout scriptDialogLayout = new javax.swing.GroupLayout(scriptDialog.getContentPane());
+        GroupLayout scriptDialogLayout = new GroupLayout(scriptDialog.getContentPane());
         scriptDialog.getContentPane().setLayout(scriptDialogLayout);
         scriptDialogLayout.setHorizontalGroup(
-                scriptDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                scriptDialogLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(scriptDialogLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addGroup(scriptDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
+                                .addGroup(scriptDialogLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                        .addComponent(jScrollPane3, GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
                                         .addComponent(jScrollPane2)
                                         .addGroup(scriptDialogLayout.createSequentialGroup()
                                                 .addGap(0, 0, Short.MAX_VALUE)
-                                                .addComponent(createScriptFigureButton, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(createScriptFigureButton, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE))
                                         .addGroup(scriptDialogLayout.createSequentialGroup()
-                                                .addGroup(scriptDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addGroup(scriptDialogLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                                                         .addComponent(jLabel1)
                                                         .addComponent(nameCustomScriptTextField)
-                                                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
+                                                        .addComponent(jLabel2, GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
                                                 .addGap(0, 0, Short.MAX_VALUE)))
                                 .addContainerGap())
         );
         scriptDialogLayout.setVerticalGroup(
-                scriptDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                scriptDialogLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(scriptDialogLayout.createSequentialGroup()
                                 .addContainerGap(7, Short.MAX_VALUE)
                                 .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(nameCustomScriptTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(nameCustomScriptTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane2, GroupLayout.PREFERRED_SIZE, 186, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(createScriptFigureButton)
                                 .addContainerGap())
         );
@@ -156,7 +154,7 @@ public class EditorFrame extends JFrame {
 
         jLabel4.setText("Name of custom figure:");
 
-        figuresDialogList.setModel(new javax.swing.AbstractListModel<String>() {
+        figuresDialogList.setModel(new AbstractListModel<String>() {
             public int getSize() { return paintPanel.getFigures().size(); }
             public String getElementAt(int i) { return paintPanel.getFigures().get(i).name(); }
         });
@@ -205,7 +203,7 @@ public class EditorFrame extends JFrame {
             }
         });
 
-        addedFiguresList.setModel(new javax.swing.AbstractListModel<String>() {
+        addedFiguresList.setModel(new AbstractListModel<String>() {
             public int getSize() { return figureSet.getFigures().size(); }
             public String getElementAt(int i) { return figureSet.getFigures().get(i).name(); }
         });
@@ -213,40 +211,40 @@ public class EditorFrame extends JFrame {
 
         jLabel11.setText("Added figures");
 
-        javax.swing.GroupLayout createDialogLayout = new javax.swing.GroupLayout(createDialog.getContentPane());
+        GroupLayout createDialogLayout = new GroupLayout(createDialog.getContentPane());
         createDialog.getContentPane().setLayout(createDialogLayout);
         createDialogLayout.setHorizontalGroup(
-                createDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                createDialogLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(createDialogLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addGroup(createDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(nameCustomDialogTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
+                                .addGroup(createDialogLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jLabel5, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jScrollPane6, GroupLayout.Alignment.LEADING)
+                                        .addComponent(nameCustomDialogTextField, GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel4, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
                                 .addGap(18, 18, 18)
-                                .addGroup(createDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(createDialogLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                         .addGroup(createDialogLayout.createSequentialGroup()
                                                 .addGap(0, 84, Short.MAX_VALUE)
-                                                .addComponent(addFigureButton, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(createFigureButton, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(addFigureButton, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(createFigureButton, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE))
                                         .addGroup(createDialogLayout.createSequentialGroup()
-                                                .addGroup(createDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(point2Edit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGroup(createDialogLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                                        .addComponent(point2Edit, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                                         .addComponent(jLabel7)
-                                                        .addComponent(angleEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(angleEdit, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                                         .addComponent(jLabel8)
-                                                        .addComponent(widthEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(widthEdit, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                                         .addComponent(jLabel9)
-                                                        .addComponent(heightEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(heightEdit, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                                         .addComponent(jLabel10)
-                                                        .addComponent(startPointEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(startPointEdit, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                                         .addComponent(jLabel6)
-                                                        .addComponent(point1Edit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(point1Edit, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                                         .addComponent(jLabel3))
                                                 .addGap(18, 18, 18)
-                                                .addGroup(createDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(createDialogLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                                         .addGroup(createDialogLayout.createSequentialGroup()
                                                                 .addComponent(jLabel11)
                                                                 .addGap(0, 0, Short.MAX_VALUE))
@@ -254,65 +252,65 @@ public class EditorFrame extends JFrame {
                                 .addContainerGap())
         );
         createDialogLayout.setVerticalGroup(
-                createDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                createDialogLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(createDialogLayout.createSequentialGroup()
                                 .addContainerGap(17, Short.MAX_VALUE)
-                                .addGroup(createDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addGroup(createDialogLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel4)
                                         .addComponent(jLabel6))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(createDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(nameCustomDialogTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(point1Edit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(createDialogLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                        .addComponent(nameCustomDialogTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(point1Edit, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                                 .addGap(9, 9, 9)
-                                .addGroup(createDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addGroup(createDialogLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel5)
                                         .addComponent(jLabel3)
                                         .addComponent(jLabel11))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(createDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, createDialogLayout.createSequentialGroup()
-                                                .addGroup(createDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(createDialogLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                        .addGroup(GroupLayout.Alignment.TRAILING, createDialogLayout.createSequentialGroup()
+                                                .addGroup(createDialogLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
+                                                        .addComponent(jScrollPane4, GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
                                                         .addComponent(jScrollPane6))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(createDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(createDialogLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                                                         .addComponent(createFigureButton)
                                                         .addComponent(addFigureButton)))
                                         .addGroup(createDialogLayout.createSequentialGroup()
-                                                .addComponent(point2Edit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(point2Edit, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(jLabel7)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(angleEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(angleEdit, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                                 .addGap(9, 9, 9)
                                                 .addComponent(jLabel8)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(widthEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(widthEdit, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(jLabel9)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(heightEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(heightEdit, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                                 .addGap(9, 9, 9)
                                                 .addComponent(jLabel10)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(startPointEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(startPointEdit, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
                                 .addContainerGap())
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         paintPanel.setBackground(new java.awt.Color(255, 255, 255));
         paintPanel.setPreferredSize(new java.awt.Dimension(1024, 768));
 
-        javax.swing.GroupLayout paintPanelLayout = new javax.swing.GroupLayout(paintPanel);
+        GroupLayout paintPanelLayout = new GroupLayout(paintPanel);
         paintPanel.setLayout(paintPanelLayout);
         paintPanelLayout.setHorizontalGroup(
-                paintPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                paintPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGap(0, 1024, Short.MAX_VALUE)
         );
         paintPanelLayout.setVerticalGroup(
-                paintPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                paintPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGap(0, 768, Short.MAX_VALUE)
         );
 
@@ -326,9 +324,9 @@ public class EditorFrame extends JFrame {
             }
         });
 
-        editorPanel.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        editorPanel.setBorder(BorderFactory.createLineBorder(null));
 
-        figureList.setModel(new javax.swing.AbstractListModel<String>() {
+        figureList.setModel(new AbstractListModel<String>() {
             public int getSize() { return paintPanel.getFigures().size(); }
             public String getElementAt(int i) { return paintPanel.getFigures().get(i).name(); }
         });
@@ -392,72 +390,72 @@ public class EditorFrame extends JFrame {
             }
         });
 
-        javax.swing.GroupLayout editorPanelLayout = new javax.swing.GroupLayout(editorPanel);
+        GroupLayout editorPanelLayout = new GroupLayout(editorPanel);
         editorPanel.setLayout(editorPanelLayout);
         editorPanelLayout.setHorizontalGroup(
-                editorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                editorPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(editorPanelLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addGroup(editorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(editorPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                         .addComponent(jScrollPane1)
-                                        .addComponent(addByScriptButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(addByDialogButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(addByScriptButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(addByDialogButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(editorPanelLayout.createSequentialGroup()
-                                                .addGroup(editorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(moveButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGroup(editorPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                                                        .addComponent(jLabel13, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(moveButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                         .addComponent(resizeEdit)
-                                                        .addComponent(resizeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(deleteButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                        .addComponent(resizeButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(deleteButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                 .addGap(0, 42, Short.MAX_VALUE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editorPanelLayout.createSequentialGroup()
+                                        .addGroup(GroupLayout.Alignment.TRAILING, editorPanelLayout.createSequentialGroup()
                                                 .addGap(0, 0, Short.MAX_VALUE)
-                                                .addGroup(editorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(loadButton, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(saveButton, javax.swing.GroupLayout.Alignment.TRAILING))))
+                                                .addGroup(editorPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                                        .addComponent(loadButton, GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(saveButton, GroupLayout.Alignment.TRAILING))))
                                 .addContainerGap())
         );
         editorPanelLayout.setVerticalGroup(
-                editorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                editorPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(editorPanelLayout.createSequentialGroup()
                                 .addGap(12, 12, 12)
                                 .addComponent(jLabel13)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 134, GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(moveButton)
                                 .addGap(18, 18, 18)
-                                .addComponent(resizeEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(resizeEdit, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(resizeButton)
                                 .addGap(18, 18, 18)
                                 .addComponent(deleteButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(saveButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(loadButton)
                                 .addGap(18, 18, 18)
                                 .addComponent(addByDialogButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(addByScriptButton)
                                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                                .addComponent(paintPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(editorPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(paintPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(editorPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(editorPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(paintPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(editorPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(paintPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -576,49 +574,49 @@ public class EditorFrame extends JFrame {
     }
 
     // Variables declaration - do not modify
-    private javax.swing.JButton addByDialogButton;
-    private javax.swing.JButton addByScriptButton;
-    private javax.swing.JButton addFigureButton;
-    private javax.swing.JList<String> addedFiguresList;
-    private javax.swing.JTextField angleEdit;
-    private javax.swing.JDialog createDialog;
-    private javax.swing.JButton createFigureButton;
-    private javax.swing.JButton createScriptFigureButton;
-    private javax.swing.JButton deleteButton;
-    private javax.swing.JPanel editorPanel;
-    private javax.swing.JList<String> figureList;
-    private javax.swing.JList<String> figuresDialogList;
-    private javax.swing.JTextField heightEdit;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JButton loadButton;
-    private javax.swing.JButton moveButton;
-    private javax.swing.JTextField nameCustomDialogTextField;
-    private javax.swing.JTextField nameCustomScriptTextField;
+    private JButton addByDialogButton;
+    private JButton addByScriptButton;
+    private JButton addFigureButton;
+    private JList<String> addedFiguresList;
+    private JTextField angleEdit;
+    private JDialog createDialog;
+    private JButton createFigureButton;
+    private JButton createScriptFigureButton;
+    private JButton deleteButton;
+    private JPanel editorPanel;
+    private JList<String> figureList;
+    private JList<String> figuresDialogList;
+    private JTextField heightEdit;
+    private JLabel jLabel1;
+    private JLabel jLabel10;
+    private JLabel jLabel11;
+    private JLabel jLabel13;
+    private JLabel jLabel2;
+    private JLabel jLabel3;
+    private JLabel jLabel4;
+    private JLabel jLabel5;
+    private JLabel jLabel6;
+    private JLabel jLabel7;
+    private JLabel jLabel8;
+    private JLabel jLabel9;
+    private JScrollPane jScrollPane1;
+    private JScrollPane jScrollPane2;
+    private JScrollPane jScrollPane3;
+    private JScrollPane jScrollPane4;
+    private JScrollPane jScrollPane6;
+    private JTextArea jTextArea1;
+    private JButton loadButton;
+    private JButton moveButton;
+    private JTextField nameCustomDialogTextField;
+    private JTextField nameCustomScriptTextField;
     private GraphicEditorComponent paintPanel;
-    private javax.swing.JTextField point1Edit;
-    private javax.swing.JTextField point2Edit;
-    private javax.swing.JButton resizeButton;
-    private javax.swing.JTextField resizeEdit;
-    private javax.swing.JButton saveButton;
-    private javax.swing.JDialog scriptDialog;
-    private javax.swing.JTextPane scriptTextPane;
-    private javax.swing.JTextField startPointEdit;
-    private javax.swing.JTextField widthEdit;
+    private JTextField point1Edit;
+    private JTextField point2Edit;
+    private JButton resizeButton;
+    private JTextField resizeEdit;
+    private JButton saveButton;
+    private JDialog scriptDialog;
+    private JTextPane scriptTextPane;
+    private JTextField startPointEdit;
+    private JTextField widthEdit;
 }
