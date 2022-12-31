@@ -1,11 +1,11 @@
 package by.bsuir.oop.shytsikau.graphic.figures.composite;
 
-import by.bsuir.oop.shytsikau.graphic.figures.CompositeFigure;
+import by.bsuir.oop.shytsikau.graphic.api.Point;
+import by.bsuir.oop.shytsikau.graphic.api.collections.PointArray;
+import by.bsuir.oop.shytsikau.graphic.api.composite.CompositeFigure;
 import by.bsuir.oop.shytsikau.graphic.figures.RectangleBounds;
 import by.bsuir.oop.shytsikau.graphic.figures.basic.LineSegment;
-import by.bsuir.oop.shytsikau.graphic.figures.basic.Point;
-import by.bsuir.oop.shytsikau.graphic.figures.collections.FigureList;
-import by.bsuir.oop.shytsikau.graphic.figures.collections.PointArray;
+import by.bsuir.oop.shytsikau.graphic.api.collections.FigureList;
 
 import java.io.Externalizable;
 

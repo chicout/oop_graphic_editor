@@ -1,7 +1,7 @@
-package by.bsuir.oop.shytsikau.graphic.figures.basic;
+package by.bsuir.oop.shytsikau.graphic.api;
 
-import by.bsuir.oop.shytsikau.graphic.figures.Figure;
-import by.bsuir.oop.shytsikau.graphic.figures.collections.PointArray;
+import by.bsuir.oop.shytsikau.graphic.api.collections.PointArray;
+import by.bsuir.oop.shytsikau.graphic.api.plugins.FigureTransformer;
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -59,14 +59,19 @@ public class Point implements Figure, Cloneable, Externalizable {
     public int[] getY(int x) {
         if (x != this.x)
             return new int[0];
-        return new int[]{this.getY()};
+        return new int[]{this.y};
     }
 
     @Override
     public int[] getX(int y) {
         if (y != this.y)
             return new int[0];
-        return new int[]{this.getX()};
+        return new int[]{this.x};
+    }
+
+    @Override
+    public Point[] transform(Point point) {
+        return new Point[]{this};
     }
 
     @Override
@@ -101,6 +106,11 @@ public class Point implements Figure, Cloneable, Externalizable {
     }
 
     @Override
+    public void addTransformer(FigureTransformer transformer) {
+        // do nothing
+    }
+
+    @Override
     public void writeExternal(ObjectOutput out) throws IOException {
         out.writeInt(this.x);
         out.writeInt(this.y);
@@ -110,5 +120,23 @@ public class Point implements Figure, Cloneable, Externalizable {
     public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
         this.x = in.readInt();
         this.y = in.readInt();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Point point = (Point) o;
+
+        if (x != point.x) return false;
+        return y == point.y;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = x;
+        result = 31 * result + y;
+        return result;
     }
 }

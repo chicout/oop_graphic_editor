@@ -1,10 +1,10 @@
 package by.bsuir.oop.shytsikau.graphic;
 
-import by.bsuir.oop.shytsikau.graphic.figures.Figure;
-import by.bsuir.oop.shytsikau.graphic.figures.basic.Point;
-import by.bsuir.oop.shytsikau.graphic.figures.collections.FigureList;
-import by.bsuir.oop.shytsikau.graphic.figures.collections.PointArray;
-import by.bsuir.oop.shytsikau.graphic.figures.composite.FigureSet;
+import by.bsuir.oop.shytsikau.graphic.api.Figure;
+import by.bsuir.oop.shytsikau.graphic.api.Point;
+import by.bsuir.oop.shytsikau.graphic.api.collections.PointArray;
+import by.bsuir.oop.shytsikau.graphic.api.collections.FigureList;
+import by.bsuir.oop.shytsikau.graphic.api.composite.FigureSet;
 
 /**
  *  Static parser for simple script language creating new user figure

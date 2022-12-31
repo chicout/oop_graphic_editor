@@ -1,6 +1,6 @@
 package by.bsuir.oop.shytsikau.graphic;
 
-import by.bsuir.oop.shytsikau.graphic.figures.collections.FigureList;
+import by.bsuir.oop.shytsikau.graphic.api.collections.FigureList;
 
 import java.io.*;
 

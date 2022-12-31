@@ -1,7 +1,7 @@
-package by.bsuir.oop.shytsikau.graphic.figures;
+package by.bsuir.oop.shytsikau.graphic.api;
 
-import by.bsuir.oop.shytsikau.graphic.figures.basic.Point;
-import by.bsuir.oop.shytsikau.graphic.figures.collections.PointArray;
+import by.bsuir.oop.shytsikau.graphic.api.collections.PointArray;
+import by.bsuir.oop.shytsikau.graphic.api.plugins.FigureTransformer;
 
 /**
  * An interface that describes a figure behavior
@@ -27,6 +27,13 @@ public interface Figure {
     int[] getX(int y);
 
     /**
+     * Used by plugin system to transform figure points
+     * @param point
+     * @return
+     */
+    Point[] transform(Point point);
+
+    /**
      * Move the figure adding coordinates to current location
      * @param relPoint relative point to add to current location
      */
@@ -40,14 +47,20 @@ public interface Figure {
      */
     Figure clone();
 
+    /**
+     * Used by plugin system to add transformer plugin
+     * @param transformer
+     *
+     */
+    void addTransformer(FigureTransformer transformer);
+
+    Point getStartPoint();
+
     // default methods for figure builder - figure implementation is allowed not to implement them
     default void setPoints(PointArray points){}
     default void setAngle(double angle) {}
     default void setWidth(int width) {}
     default void setHeight(int height) {}
-
-    Point getStartPoint();
-
     default void setStartPoint(Point startPoint) {}
 
     default void recalculatePoints() {}

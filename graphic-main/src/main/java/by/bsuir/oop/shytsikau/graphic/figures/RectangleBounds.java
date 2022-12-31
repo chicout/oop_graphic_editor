@@ -1,6 +1,7 @@
 package by.bsuir.oop.shytsikau.graphic.figures;
 
-import by.bsuir.oop.shytsikau.graphic.figures.basic.Point;
+
+import by.bsuir.oop.shytsikau.graphic.api.Point;
 
 import java.io.Externalizable;
 import java.io.IOException;

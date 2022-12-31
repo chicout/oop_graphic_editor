@@ -2,12 +2,13 @@ package by.bsuir.oop.shytsikau.graphic.ui;
 
 import by.bsuir.oop.shytsikau.graphic.FileSaveUtils;
 import by.bsuir.oop.shytsikau.graphic.ScriptLanguageParser;
-import by.bsuir.oop.shytsikau.graphic.figures.Figure;
+import by.bsuir.oop.shytsikau.graphic.api.Figure;
+import by.bsuir.oop.shytsikau.graphic.api.plugins.FigureTransformer;
+import by.bsuir.oop.shytsikau.graphic.api.collections.PointArray;
+import by.bsuir.oop.shytsikau.graphic.api.composite.FigureSet;
 import by.bsuir.oop.shytsikau.graphic.figures.RectangleBounds;
 import by.bsuir.oop.shytsikau.graphic.figures.basic.LineSegment;
-import by.bsuir.oop.shytsikau.graphic.figures.basic.Point;
-import by.bsuir.oop.shytsikau.graphic.figures.collections.PointArray;
-import by.bsuir.oop.shytsikau.graphic.figures.composite.FigureSet;
+import by.bsuir.oop.shytsikau.graphic.api.Point;
 import by.bsuir.oop.shytsikau.graphic.figures.composite.Parallelogram;
 import by.bsuir.oop.shytsikau.graphic.figures.composite.Rectangle;
 
@@ -15,6 +16,7 @@ import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Arrays;
+import java.util.List;
 
 public class EditorFrame extends JFrame {
 
@@ -24,10 +26,11 @@ public class EditorFrame extends JFrame {
     private boolean mouseMoveCoordinates;
     // creating user figure
     private FigureSet figureSet = new FigureSet();
+    private List<FigureTransformer> plugins;
 
-
-    public EditorFrame(GraphicEditorComponent graphicEditorComponent) {
+    public EditorFrame(GraphicEditorComponent graphicEditorComponent, List<FigureTransformer> plugins) {
         this.paintPanel = graphicEditorComponent;
+        this.plugins = plugins;
         initComponents();
     }
 
@@ -83,6 +86,12 @@ public class EditorFrame extends JFrame {
         deleteButton = new JButton();
         loadButton = new JButton();
         saveButton = new JButton();
+        jLabel12 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        pluginList = new javax.swing.JList<>();
+        jLabel14 = new javax.swing.JLabel();
+        pluginParamsEdit = new javax.swing.JTextField();
+        applyPluginButton = new javax.swing.JButton();
 
         scriptDialog.setSize(new java.awt.Dimension(500, 450));
 
@@ -390,53 +399,90 @@ public class EditorFrame extends JFrame {
             }
         });
 
-        GroupLayout editorPanelLayout = new GroupLayout(editorPanel);
+        jLabel12.setText("Plugins");
+
+        pluginList.setModel(new javax.swing.AbstractListModel<String>() {
+            public int getSize() { return plugins.size(); }
+            public String getElementAt(int i) { return plugins.get(i).name(); }
+        });
+        pluginList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                pluginListValueChanged(evt);
+            }
+        });
+        jScrollPane5.setViewportView(pluginList);
+
+        jLabel14.setText("Plagin parameters:");
+
+        applyPluginButton.setText("Apply");
+        applyPluginButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                applyPluginButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout editorPanelLayout = new javax.swing.GroupLayout(editorPanel);
         editorPanel.setLayout(editorPanelLayout);
         editorPanelLayout.setHorizontalGroup(
-                editorPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                editorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(editorPanelLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addGroup(editorPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                .addGroup(editorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jScrollPane1)
-                                        .addComponent(addByScriptButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(addByDialogButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(editorPanelLayout.createSequentialGroup()
-                                                .addGroup(editorPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(jLabel13, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(moveButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(resizeEdit)
-                                                        .addComponent(resizeButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(deleteButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                                .addGap(0, 42, Short.MAX_VALUE))
-                                        .addGroup(GroupLayout.Alignment.TRAILING, editorPanelLayout.createSequentialGroup()
+                                        .addComponent(addByScriptButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(addByDialogButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editorPanelLayout.createSequentialGroup()
                                                 .addGap(0, 0, Short.MAX_VALUE)
-                                                .addGroup(editorPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                                        .addComponent(loadButton, GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(saveButton, GroupLayout.Alignment.TRAILING))))
+                                                .addGroup(editorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(loadButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(saveButton, javax.swing.GroupLayout.Alignment.TRAILING)))
+                                        .addGroup(editorPanelLayout.createSequentialGroup()
+                                                .addGroup(editorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(moveButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(resizeEdit)
+                                                        .addComponent(resizeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(deleteButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(jLabel14)
+                                                        .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(pluginParamsEdit)
+                                                        .addComponent(applyPluginButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addGap(0, 42, Short.MAX_VALUE)))
                                 .addContainerGap())
         );
         editorPanelLayout.setVerticalGroup(
-                editorPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                editorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(editorPanelLayout.createSequentialGroup()
                                 .addGap(12, 12, 12)
                                 .addComponent(jLabel13)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 134, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(moveButton)
                                 .addGap(18, 18, 18)
-                                .addComponent(resizeEdit, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(resizeEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(resizeButton)
                                 .addGap(18, 18, 18)
                                 .addComponent(deleteButton)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel12)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(pluginParamsEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(applyPluginButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(saveButton)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(loadButton)
                                 .addGap(18, 18, 18)
                                 .addComponent(addByDialogButton)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(addByScriptButton)
                                 .addContainerGap())
         );
@@ -568,6 +614,17 @@ public class EditorFrame extends JFrame {
         refresh();
     }
 
+    private void pluginListValueChanged(javax.swing.event.ListSelectionEvent evt) {
+        pluginParamsEdit.setText(plugins.get(pluginList.getSelectedIndex()).getExampleParams());
+    }
+
+    private void applyPluginButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        FigureTransformer selectedPlugin = plugins.get(pluginList.getSelectedIndex()).clone();
+        Figure newFigure = selectedPlugin.init(paintPanel.getFigures().getFigure(selectedFigureName), pluginParamsEdit.getText());
+        paintPanel.getFigures().add(newFigure);
+        refresh();
+    }
+
     private void refresh() {
         figureList.updateUI();
         paintPanel.repaint();
@@ -579,6 +636,7 @@ public class EditorFrame extends JFrame {
     private JButton addFigureButton;
     private JList<String> addedFiguresList;
     private JTextField angleEdit;
+    private javax.swing.JButton applyPluginButton;
     private JDialog createDialog;
     private JButton createFigureButton;
     private JButton createScriptFigureButton;
@@ -591,6 +649,8 @@ public class EditorFrame extends JFrame {
     private JLabel jLabel10;
     private JLabel jLabel11;
     private JLabel jLabel13;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel14;
     private JLabel jLabel2;
     private JLabel jLabel3;
     private JLabel jLabel4;
@@ -603,6 +663,7 @@ public class EditorFrame extends JFrame {
     private JScrollPane jScrollPane2;
     private JScrollPane jScrollPane3;
     private JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private JScrollPane jScrollPane6;
     private JTextArea jTextArea1;
     private JButton loadButton;
@@ -610,6 +671,8 @@ public class EditorFrame extends JFrame {
     private JTextField nameCustomDialogTextField;
     private JTextField nameCustomScriptTextField;
     private GraphicEditorComponent paintPanel;
+    private javax.swing.JList<String> pluginList;
+    private javax.swing.JTextField pluginParamsEdit;
     private JTextField point1Edit;
     private JTextField point2Edit;
     private JButton resizeButton;

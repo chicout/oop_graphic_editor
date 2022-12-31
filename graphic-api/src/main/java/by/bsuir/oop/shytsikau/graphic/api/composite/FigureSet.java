@@ -1,8 +1,7 @@
-package by.bsuir.oop.shytsikau.graphic.figures.composite;
+package by.bsuir.oop.shytsikau.graphic.api.composite;
 
-import by.bsuir.oop.shytsikau.graphic.figures.CompositeFigure;
-import by.bsuir.oop.shytsikau.graphic.figures.Figure;
-import by.bsuir.oop.shytsikau.graphic.figures.collections.FigureList;
+import by.bsuir.oop.shytsikau.graphic.api.Figure;
+import by.bsuir.oop.shytsikau.graphic.api.collections.FigureList;
 
 import java.io.Externalizable;
 import java.io.IOException;

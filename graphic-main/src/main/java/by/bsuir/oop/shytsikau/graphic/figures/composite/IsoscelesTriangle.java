@@ -1,7 +1,7 @@
 package by.bsuir.oop.shytsikau.graphic.figures.composite;
 
-import by.bsuir.oop.shytsikau.graphic.figures.basic.Point;
-import by.bsuir.oop.shytsikau.graphic.figures.collections.PointArray;
+import by.bsuir.oop.shytsikau.graphic.api.Point;
+import by.bsuir.oop.shytsikau.graphic.api.collections.PointArray;
 
 import java.io.Externalizable;
 

@@ -1,5 +1,6 @@
 package by.bsuir.oop.shytsikau.graphic.figures.basic;
 
+import by.bsuir.oop.shytsikau.graphic.api.Point;
 import by.bsuir.oop.shytsikau.graphic.figures.RectangleBounds;
 
 import java.io.Externalizable;

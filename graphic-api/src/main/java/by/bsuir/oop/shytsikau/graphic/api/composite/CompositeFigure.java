@@ -1,9 +1,13 @@
-package by.bsuir.oop.shytsikau.graphic.figures;
+package by.bsuir.oop.shytsikau.graphic.api.composite;
 
-import by.bsuir.oop.shytsikau.graphic.figures.basic.Point;
-import by.bsuir.oop.shytsikau.graphic.figures.collections.FigureList;
+import by.bsuir.oop.shytsikau.graphic.api.Figure;
+import by.bsuir.oop.shytsikau.graphic.api.plugins.FigureTransformer;
+import by.bsuir.oop.shytsikau.graphic.api.Point;
+import by.bsuir.oop.shytsikau.graphic.api.collections.FigureList;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * An interface that describes default composite figure behavior: calculating axis of a figure that consist of multiple simple figures.
@@ -29,6 +33,20 @@ public interface CompositeFigure extends Figure {
     @Override
     default void resize(double factor) {
         getFigures().forEach(figure -> figure.resize(factor));
+    }
+
+    @Override
+    default void addTransformer(FigureTransformer transformer) {
+        getFigures().forEach(figure -> figure.addTransformer(transformer));
+    }
+
+    @Override
+    default Point[] transform(Point point) {
+        List<Point> newPoint = new ArrayList<>();
+        for (Figure figure : getFigures()) {
+            newPoint.addAll(Arrays.asList(figure.transform(point)));
+        }
+        return newPoint.toArray(new Point[0]);
     }
 
     @Override

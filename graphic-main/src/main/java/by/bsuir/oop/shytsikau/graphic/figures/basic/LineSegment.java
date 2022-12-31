@@ -1,11 +1,13 @@
 package by.bsuir.oop.shytsikau.graphic.figures.basic;
 
+import by.bsuir.oop.shytsikau.graphic.api.Point;
+import by.bsuir.oop.shytsikau.graphic.api.collections.PointArray;
 import by.bsuir.oop.shytsikau.graphic.figures.AbstractFigure;
-import by.bsuir.oop.shytsikau.graphic.figures.collections.PointArray;
 
 import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
+import java.util.Arrays;
 
 /**
  * A class that represents line segment. The calculation of parallelogram coordinates is performed with canonical line equation <i>(x - x<sup>1</sup>)  / (x<sup>2</sup> - x<sup>1</sup>) = (y - y<sup>1</sup>)  / (y<sup>2</sup> - y<sup>1</sup></i>)

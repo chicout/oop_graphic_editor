@@ -1,6 +1,6 @@
-package by.bsuir.oop.shytsikau.graphic.figures.collections;
+package by.bsuir.oop.shytsikau.graphic.api.collections;
 
-import by.bsuir.oop.shytsikau.graphic.figures.Figure;
+import by.bsuir.oop.shytsikau.graphic.api.Figure;
 
 import java.io.Externalizable;
 import java.io.IOException;

@@ -1,9 +1,12 @@
 package by.bsuir.oop.shytsikau.graphic.ui;
 
-import by.bsuir.oop.shytsikau.graphic.figures.collections.FigureList;
+import by.bsuir.oop.shytsikau.graphic.api.Point;
+import by.bsuir.oop.shytsikau.graphic.api.collections.FigureList;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Arrays;
 
 public class GraphicEditorComponent extends JComponent {
@@ -26,17 +29,25 @@ public class GraphicEditorComponent extends JComponent {
             for (int x = 0; x <= getWidth(); x++) {
                 // get Y coordinates of a figure for the X
                 int[] y = figure.getY(x);
-                int finalX = x;
                 // for each Y coordinate and give X coordinate - draw dot (pixel)
-                Arrays.stream(y).forEach(coordinate -> drawDot(g, finalX, coordinate));
+                List<Point> transformedList = new ArrayList<>();
+                for (int aY : y) {
+                    Point[] transformed = figure.transform(new Point(x, aY));
+                    transformedList.addAll(Arrays.asList(transformed));
+                }
+                transformedList.forEach(coordinate -> drawDot(g, coordinate.getX(), coordinate.getY()));
             }
             // the same need to do traversing Y coordinate of the canvas - because if line has more than 45 angle than drawing will be inaccurate
             // because traversing was only for X coordinate
-            for (int y = 0; y <= getHeight(); y++) {
-                int[] x = figure.getX(y);
-                int finalY = y;
-                Arrays.stream(x).forEach(coordinate -> drawDot(g, coordinate, finalY));
-            }
+//            for (int y = 0; y <= getHeight(); y++) {
+//                int[] x = figure.getX(y);
+//                List<Point> transformedList = new ArrayList<>();
+//                for (int aX : x) {
+//                    Point[] transformed = figure.transform(new Point(y, aX));
+//                    transformedList.addAll(Arrays.asList(transformed));
+//                }
+//              transformedList.forEach(coordinate -> drawDot(g, coordinate.getY(), coordinate.getX()));
+//            }
         });
     }
 
