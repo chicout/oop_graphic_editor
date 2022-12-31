@@ -1,3 +1,6 @@
 /.idea/
 /target/
 
+/graphic-main/target/
+/graphic-api/target/
+/graphic-plugin-1/target/
