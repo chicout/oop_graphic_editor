@@ -10,7 +10,6 @@ import by.bsuir.oop.shytsikau.graphic.figures.composite.Rectangle;
 module graphic {
     requires java.desktop;
     requires graphic_api;
-    requires graphic_plugin_rotate;
     exports by.bsuir.oop.shytsikau.graphic.figures;
     uses FigureTransformer;
     uses Figure;
