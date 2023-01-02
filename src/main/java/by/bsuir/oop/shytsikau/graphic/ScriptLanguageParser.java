@@ -22,7 +22,7 @@ public class ScriptLanguageParser {
         // create user figure with name
         FigureSet figureSet = new FigureSet(name);
 
-        String[] figureScripts = script.split(";\n");
+        String[] figureScripts = script.split(";" + System.lineSeparator());
         // traversing each line splited with semicolon and new line - each figure to add
         for (String figureScript : figureScripts){
             Figure newFigure = null;
